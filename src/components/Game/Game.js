@@ -26,7 +26,8 @@ function Game() {
   function handleAddItem(item) {
     console.log(item, answer);
     console.log(items.length);
-    setItems([...items, item]);
+    const newItems = [...items, item];
+    setItems(newItems);
     const newWordStatuses = checkGuess(item, answer).map(
       (item) => item.status
     );
@@ -46,7 +47,7 @@ function Game() {
 
     if (item === answer) {
       setGameWon(true);
-    } else if (items.length === NUM_OF_GUESSES_ALLOWED - 1) {
+    } else if (newItems.length === NUM_OF_GUESSES_ALLOWED) {
       setGameOver(true);
     }
   }
