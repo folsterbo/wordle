@@ -73,8 +73,13 @@ function Game() {
       {isGameWon && (
         <div className="happy banner">
           <p>
-            <strong>Congratulations!</strong> Got it in
-            <strong> {items.length} guesses</strong>.
+            <strong>Congratulations!</strong> Got it in{' '}
+            <strong>
+              {items.length === 1
+                ? '1 guess'
+                : `${items.length} guesses`}
+            </strong>
+            .
           </p>
           <form>
             <button>Restart game</button>
